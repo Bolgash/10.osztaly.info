@@ -1,40 +1,27 @@
 #include <iostream>
-#include <fstream>
+
 using namespace std;
 
 int main()
 {
-    ifstream input("bac.txt");
-    int a,maxpos,max,i;
-    input>>a;
-    maxpos=-1;
-    i=1;
-    max=a;
-    cout<<a<<" ";
-    while(input>>a)
-    {
-        if(a>max)
-        {
-            cout<<a<<" ";
-            max=a;
-            maxpos=i;
+    int a[100][100],n,i,j,m;
+    cin>>n;
+cin>>m;
+    for(i=0;i<n;i++){
+        for(j=0;j<m;j++){
+                cout<<"a["<<i<<"]["<<j<<"]"<<endl;
+            cin>>a[i][j];
+
+
         }
-        else if (a==max)
-        {
-
-            if(maxpos==i-1){
-                cout<<a<<" ";
-                maxpos=i;
-            }
-
-            }
-            i++;
     }
 
-
-
-
-
+for(i=0;i<n;i++){
+        for(j=0;j<m;j++){
+         cout<<a[i][j]<<" ";
+        }
+cout<<endl;
+}
 
 
 
