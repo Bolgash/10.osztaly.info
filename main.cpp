@@ -1,44 +1,43 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 int main()
 {
-    int n, t1 = 0, t2 = 1, nextTerm = 0;
-    cin >> n;
-    for (int i = 1; i <= n; ++i)
+    ifstream input("bac.txt");
+    int a,maxpos,max,i;
+    input>>a;
+    maxpos=-1;
+    i=1;
+    max=a;
+    cout<<a<<" ";
+    while(input>>a)
     {
-
-        if(i == 1)
+        if(a>max)
         {
-            cout << " " << t1;
-            continue;
+            cout<<a<<" ";
+            max=a;
+            maxpos=i;
         }
-        if(i == 2)
+        else if (a==max)
         {
-            cout << t2 << " ";
-            continue;
-        }
-        nextTerm = t1 + t2;
-        t1 = t2;
-        t2 = nextTerm;
 
-        cout << nextTerm << " ";
+            if(maxpos==i-1){
+                cout<<a<<" ";
+                maxpos=i;
+            }
+
+            }
+            i++;
     }
+
+
+
+
+
+
+
+
+
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
