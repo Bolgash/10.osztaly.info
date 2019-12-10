@@ -1,0 +1,31 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    ifstream input("input.txt");
+    ofstream ve("vezetekes.txt");
+    ofstream di("digi.txt");
+    ofstream ora("orange.txt");
+    ofstream vo("vodafone.txt");
+
+    string s1;
+
+    while(input >> s1){
+        if(s1.length() == 7){
+            if(s1[0] == '2'){s1.insert(0, "00407"); vo << s1 << endl; }
+            if(s1[0] == '4'){s1.insert(0, "00407"); ora << s1 << endl; }
+            if(s1[0] == '7'){s1.insert(0, "00407"); di << s1 << endl; }
+        }
+        else {
+            s1.insert(0,"0040260");
+            ve << s1 << endl;
+        }
+    }
+
+
+    return 0;
+}
