@@ -1,0 +1,134 @@
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
+
+#define n1 10
+#define n2 100
+#define n3 1000
+#define n4 10000
+
+using namespace std;
+
+int x1[n1],x2[n2],x3[n3],x4[n4];
+
+void bubsort(int x[],int n){
+    bool voltcsere=true;
+    while(voltcsere){
+        voltcsere=false;
+        for(int i=0;i<n;i++){
+            if(x[i]>x[i+1]){
+                x[i]=x[i]^x[i+1];
+                x[i+1]=x[i+1]^x[i];
+                x[i]=x[i]^x[i+1];
+                voltcsere=true;
+            }
+        }
+    }
+    return;
+}
+
+void forsort(int x[],int n){
+    for(int i=0;i<n;i++)
+    for(int j=i;j<n;j++){
+        if(x[i]>x[j]){
+            x[i]=x[i]^x[j];
+            x[j]=x[j]^x[i];
+            x[i]=x[i]^x[j];
+        }
+    }
+    return;
+}
+
+void kiir(int x[], int n){
+    for(int i=0;i<n;i++) cout<<x[i]<<" ";
+    cout<<endl;
+    return;
+}
+
+int main()
+{
+    cout<<endl;
+    srand(time(NULL));
+    clock_t start;
+    double duration;
+
+    cout<<"========================================="<<endl;
+    cout<<"A tomb merete: 10"<<endl;
+    for(int i=0;i<n1;i++) x1[i]=rand()%100;
+    cout<<endl;
+    cout<<"Buborekosan rendezve:"<<endl;
+    start = clock();
+    ///kiir(x1,n1);
+    bubsort(x1,n1);
+
+    duration=(clock()-start)/(double)CLOCKS_PER_SEC;
+    cout<<"Eltelt ido: "<<duration<<endl<<endl;
+    for(int i=0;i<n1;i++) x1[i]=rand()%100;
+    cout<<"Dupla for ciklussal rendezve: "<<endl;
+    start = clock();
+    forsort(x1,n1);
+
+    duration=(clock()-start)/(double)CLOCKS_PER_SEC;
+
+    cout<<"Eltelt ido: "<<duration<<endl<<endl;
+    cout<<"========================================="<<endl;
+    cout<<"A tomb merete: 100"<<endl;
+    for(int i=0;i<n2;i++) x2[i]=rand()%100;
+    cout<<endl;
+    cout<<"Buborekosan rendezve:"<<endl;
+    start = clock();
+    ///kiir(x2,n2);
+    bubsort(x2,n2);
+
+    duration=(clock()-start)/(double)CLOCKS_PER_SEC;
+    cout<<"Eltelt ido: "<<duration<<endl<<endl;
+    for(int i=0;i<n2;i++) x2[i]=rand()%100;
+    cout<<"Dupla for ciklussal rendezve: "<<endl;
+    start = clock();
+    forsort(x2,n2);
+
+    duration=(clock()-start)/(double)CLOCKS_PER_SEC;
+
+    cout<<"Eltelt ido: "<<duration<<endl<<endl;
+    cout<<"========================================="<<endl;
+    cout<<"A tomb merete: 1000"<<endl;
+    for(int i=0;i<n3;i++) x3[i]=rand()%100;
+    cout<<endl;
+    cout<<"Buborekosan rendezve:"<<endl;
+    start = clock();
+    ///kiir(x3,n3);
+    bubsort(x3,n3);
+
+    duration=(clock()-start)/(double)CLOCKS_PER_SEC;
+    cout<<"Eltelt ido: "<<duration<<endl<<endl;
+    for(int i=0;i<n3;i++) x3[i]=rand()%100;
+    cout<<"Dupla for ciklussal rendezve: "<<endl;
+    start = clock();
+    forsort(x3,n3);
+
+    duration=(clock()-start)/(double)CLOCKS_PER_SEC;
+
+    cout<<"Eltelt ido: "<<duration<<endl<<endl;
+    cout<<"========================================="<<endl;
+    cout<<"A tomb merete: 10000"<<endl;
+    for(int i=0;i<n4;i++) x4[i]=rand()%100;
+    cout<<endl;
+    cout<<"Buborekosan rendezve:"<<endl;
+    start = clock();
+    ///kiir(x4,n4);
+    bubsort(x4,n4);
+
+    duration=(clock()-start)/(double)CLOCKS_PER_SEC;
+    cout<<"Eltelt ido: "<<duration<<endl<<endl;
+    for(int i=0;i<n4;i++) x4[i]=rand()%100;
+    cout<<"Dupla for ciklussal rendezve: "<<endl;
+    start = clock();
+    forsort(x4,n4);
+
+    duration=(clock()-start)/(double)CLOCKS_PER_SEC;
+
+    cout<<"Eltelt ido: "<<duration<<endl<<endl;
+    cout<<"========================================="<<endl;
+    return 0;
+}
