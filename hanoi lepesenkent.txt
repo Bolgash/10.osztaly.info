@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+
+
+void hanoi(int n,char Sour, char Aux,char Des)
+{
+	if(n==1)
+	{
+		cout<<"az/a "<<" "<<n<<" "<<Sour<<"-bol "<<Des<<"-ba"<<endl;
+		return;
+	}
+
+	hanoi(n-1,Sour,Des,Aux);
+	cout<<"az/a"<<" "<<n<<" "<<Sour<<"-bol "<<Des<<"-be"<<endl;
+	hanoi(n-1,Aux,Sour,Des);
+}
+
+
+int main()
+{
+	int n;
+
+	cout<<"k=";
+	cin>>n;
+
+	hanoi(n,'A','B','C');
+
+	return 0;
+}
