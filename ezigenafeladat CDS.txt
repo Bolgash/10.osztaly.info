@@ -1,0 +1,49 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    int v[1000],kulonbseg,minimum=10000,i=0,n=0,kiv,baj=0;
+    ifstream in("bac.txt");
+    while(!in.eof())
+    {
+        in>>v[i];
+        if(in.eof()) break;
+        i++;
+    }
+    n=i;
+    for(i=0; i<n; i++)
+    {
+        for(int j=i+1; j<n; j++)
+            if(v[i]<v[j])
+            {
+                kulonbseg=v[j]-v[i];
+                if(kulonbseg<minimum){
+                    minimum=kulonbseg;
+
+                }
+            }
+            else if(v[i]<v[j])
+            {
+                kulonbseg=v[i]-v[j];
+                if(kulonbseg<minimum){
+                    minimum=kulonbseg;
+
+                }
+            }
+    }
+
+  for(i=0; i<n; i++){
+        for(int j=i+1; j<n; j++){
+            kiv=v[i]-v[j];
+
+            if(kiv%minimum!=0) {baj=1; break;}
+
+        }
+    }
+    if(baj) cout<<"nu";
+    else cout<<"da";
+    return 0;
+}
